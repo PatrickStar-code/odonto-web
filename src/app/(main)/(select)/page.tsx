@@ -1,43 +1,55 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="bg-black h-screen flex flex-col items-center justify-center">
-      <h1 className="text-gray-200 text-5xl">
-        Você é um dentista ou um paciente?
-      </h1>
-
-      <div className="flex flex-row flex-wrap gap-12 mt-12">
-        <Link
-          href="/Cliente"
-          className="flex flex-col items-center group gap-2"
-        >
-          <Image
-            className="rounded border-2 border-transparent group-hover:border-2 group-hover:border-gray-300"
-            src="https://picsum.photos/seed/a/150/150"
-            alt="Client"
-            width={150}
-            height={150}
-          />
-          <p className="text-gray-500 group-hover:text-gray-300"> Cliente</p>
-        </Link>
-
-        <Link
-          href="/Dentist"
-          className="flex flex-col items-center group gap-2"
-        >
-          <Image
-            className="rounded border-2 border-transparent group-hover:border-2 group-hover:border-gray-300 w-[9.375rem] h-[9.375rem]"
-            src="https://images.unsplash.com/photo-1667133295308-9ef24f71952e?q=80&w=1957&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Dentist"
-            width={150}
-            height={150}
-          />
-          <p className="text-gray-500 group-hover:text-gray-300">Dentista</p>
-        </Link>
+    <section className="flex flex-col md:flex-row h-screen items-center">
+      <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+        <Image
+          src="/imgs/HomeImg.png"
+          width={1280}
+          height={500}
+          alt=""
+          id="img"
+          className="w-full h-full object-cover"
+        />
       </div>
-    </div>
+
+      <div
+        className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3  h-screen px-6 lg:px-16 xl:px-12
+        flex  justify-center items-center"
+      >
+        <div className="w-full h-100 flex flex-col items-center gap-6">
+          <h1 className="text-xl md:text-2x text-center  font-bold leading-tight mt-12">
+            Selecione Seu Usuario:
+          </h1>
+
+          <Link href={'/Dentista'} className="hover:bg-white">
+            <Image
+              src="/imgs/Dentist.png"
+              id="dentist"
+              width={150}
+              height={50}
+              alt="Logo"
+            />
+            <h1 className="text-xl text-center">Dentista</h1>
+          </Link>
+
+          <hr className="my-6 border-gray-300 w-full hover:bg-white" />
+
+          <Link href={'/Cliente'}>
+            <Image
+              src="/imgs/Client.png"
+              id="client"
+              width={150}
+              height={60}
+              alt="Logo"
+            />
+            <h1 className="text-xl text-center">Cliente</h1>
+          </Link>
+        </div>
+      </div>
+    </section>
   )
 }

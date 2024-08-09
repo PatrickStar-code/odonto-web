@@ -20,10 +20,16 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
-        {' '}
         <ThemeModeScript />
+        <link
+          rel="shortcut icon"
+          href="/imgs/favicon.png"
+          type="image/x-icon"
+        />
       </head>
-      <body className={inter.variable}>{children}</body>
+      <body className={inter.variable} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   )
 }

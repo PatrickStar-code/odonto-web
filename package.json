@@ -4,18 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "host": "next dev --hostname 26.26.177.207 --port 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@rocketseat/eslint-config": "^2.2.2",
     "flowbite": "^2.4.1",
     "flowbite-react": "^0.10.1",
     "lucide-react": "^0.424.0",
     "next": "14.2.5",
+    "odonto-web": "file:",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
