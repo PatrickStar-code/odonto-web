@@ -5,12 +5,30 @@ import MainSectionImage from '../../../../../../public/svgs/MainSectionClient.sv
 import {
   Calendar,
   CalendarClock,
+  MailOpen,
   MessageCircleQuestion,
   Users,
 } from 'lucide-react'
+import TreatmentsCard from '@/app/components/treatmentsCard'
 export const metadata: Metadata = {
   title: 'Home',
+  description: 'Home page',
+  keywords: 'home, home page',
 }
+
+const treatments = [
+  {
+    id: 1,
+    name: 'Ortodontia com aparelhos estéticos e autoligáveis',
+    icon: '/imgs/corte.png',
+  },
+  {
+    id: 2,
+    name: 'Clareamento com LED Violeta',
+    icon: '/imgs/clareamento.png',
+  },
+]
+
 export default function HomeClient() {
   return (
     <>
@@ -41,6 +59,7 @@ export default function HomeClient() {
           </div>
         </div>
       </header>
+      <section></section>
 
       <main>
         <div className="container px-6 py-5 mx-auto">
@@ -68,9 +87,9 @@ export default function HomeClient() {
                     stroke="currentColor"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                     />
                   </svg>
@@ -142,6 +161,25 @@ export default function HomeClient() {
         </div>
       </main>
 
+      <section className="w-full flex h-full md:h-[28.125rem] flex-col  mb-6 md:mb-0  gap-6  md:flex-row items-center justify-center ">
+        <div className="flex flex-col  md:w-1/2 ">
+          <h1 className="text-center text-3xl  font-bold leading-tight md:text-[53px]  ">
+            Algum de nossos
+            <br />
+            <span className="text-primary">Tratamentos</span>
+          </h1>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:grid-cols-4  items-center">
+          {treatments.map((treatment) => (
+            <TreatmentsCard
+              name={treatment.name}
+              icon={treatment.icon}
+              key={treatment.id}
+            />
+          ))}
+        </div>
+      </section>
+
       <section className=" flex flex-col md:flex-row items-center w-full justify-center gap-6">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d152031.11445641267!2d-2.277724!3d53.459771!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bade198f6a2ab%3A0xa06b7a1e162e18f9!2sOld%20Trafford%2C%20Stretford%2C%20Manchester%2C%20UK!5e0!3m2!1sen!2sid!4v1723244294730!5m2!1sen!2sid"
@@ -181,7 +219,12 @@ export default function HomeClient() {
             </div>
 
             <div className="hidden xl:block xl:absolute right-0">
-              {/* <img src="assets/image/book.png" alt="Image"> */}
+              <Image
+                src="/imgs/book.png"
+                alt="Image"
+                width={600}
+                height={600}
+              />
             </div>
 
             <div className="hidden md:block bg-white xl:relative px-6 py-3 rounded-3xl">
@@ -220,8 +263,8 @@ export default function HomeClient() {
               </div>
 
               <div className="py-3">
-                <button className="w-full py-4 font-semibold text-lg text-white bg-primary rounded-xl hover:bg-highlight transition ease-in-out duration-500">
-                  Booking
+                <button className="w-full flex gap-4 justify-center items-center py-4 font-semibold text-lg text-white bg-primary rounded-xl hover:bg-highlight transition ease-in-out duration-500">
+                  Enviar <MailOpen />
                 </button>
               </div>
             </div>
