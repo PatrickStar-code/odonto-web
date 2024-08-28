@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeModeScript } from 'flowbite-react'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -20,12 +19,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
-        <ThemeModeScript />
-        <link
-          rel="shortcut icon"
-          href="/imgs/favicon.png"
-          type="image/x-icon"
-        />
+        <link rel="shortcut icon" href="/imgs/favicon.png" />
       </head>
       <body className={inter.variable} suppressHydrationWarning={true}>
         {children}

@@ -1,6 +1,6 @@
 'use server'
 
-import FormDentist from '@/app/components/formDentist'
+import FormDentist from '@/app/components/Dentist/formDentist'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 

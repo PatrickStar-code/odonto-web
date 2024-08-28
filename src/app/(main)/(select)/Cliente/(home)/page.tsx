@@ -1,15 +1,14 @@
 import { Metadata } from 'next'
 import React from 'react'
 import Image from 'next/image'
-import MainSectionImage from '../../../../../../public/svgs/MainSectionClient.svg'
 import {
-  Calendar,
   CalendarClock,
   MailOpen,
   MessageCircleQuestion,
   Users,
 } from 'lucide-react'
-import TreatmentsCard from '@/app/components/treatmentsCard'
+import TreatmentsCard from '@/app/components/Client/treatmentsCard'
+import MainSection from '@/app/components/Client/mainSection'
 export const metadata: Metadata = {
   title: 'Home',
   description: 'Home page',
@@ -32,35 +31,7 @@ const treatments = [
 export default function HomeClient() {
   return (
     <>
-      <header className="bg-white mb-20 md:mb-52 xl:mb-72">
-        <div className="container max-w-screen-xl mx-auto px-4">
-          <div className="flex flex-col items-center xl:flex-row xl:justify-start">
-            <div className="mt-28 text-center xl:text-left">
-              <h1 className="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">
-                Agende
-                <br />
-                um <span className="text-primary">Atendimento</span>
-              </h1>
-
-              <p className="font-normal text-xl text-gray-400 leading-relaxed mb-12 whitespace-pre-line">
-                Reserve seu horário e cuide do seu sorriso com um atendimento
-                especializado
-              </p>
-              <div className="flex justify-center xl:justify-start">
-                <button className="bg-primary hover:bg-highlight px-6 py-4 text-white font-semibold text-lg rounded-xl transition ease-in-out duration-200 flex items-center">
-                  Agendar <Calendar className="ml-2" />
-                </button>
-              </div>
-            </div>
-
-            <div className="hidden xl:block ml-8">
-              <Image src={MainSectionImage} alt={''} width={808} height={900} />
-            </div>
-          </div>
-        </div>
-      </header>
-      <section></section>
-
+      <MainSection />
       <main>
         <div className="container px-6 py-5 mx-auto">
           <div className="lg:flex lg:items-center">

@@ -5,7 +5,8 @@ import React from 'react'
 import z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import SetCookiesDentist from '@/app/components/setCookiesDentist'
+import SetCookiesDentist from '../../actions/setCookiesDentist'
+
 export default function FormDentist() {
   const LoginSchema = z.object({
     login: z.string(),
@@ -25,8 +26,6 @@ export default function FormDentist() {
   })
 
   async function onSubmit(data: LoginSchemaType) {
-    console.log(data)
-
     if (data.login === 'admin' && data.password === 'admin123') {
       const cookiesSet = await SetCookiesDentist(data.login)
       cookiesSet === 'Cookies Criados'
@@ -56,7 +55,7 @@ export default function FormDentist() {
         <input
           id="senha"
           className=" pl-2 w-full outline-none border-none"
-          type="text"
+          type="password"
           {...register('password')}
           placeholder="Senha"
         />

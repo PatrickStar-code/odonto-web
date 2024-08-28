@@ -36,7 +36,7 @@ export default function Home() {
             <h1 className="text-xl text-center">Dentista</h1>
           </Link>
 
-          <hr className="my-6 border-gray-300 w-full hover:bg-white" />
+          <hr className="my-6 border-gray-300 w-full  hover:bg-white" />
 
           <Link href={'/Cliente'}>
             <Image
