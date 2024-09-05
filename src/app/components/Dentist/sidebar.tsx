@@ -35,15 +35,14 @@ const Links: LinkProps[] = [
 ]
 
 export default function SideBarDentist() {
-  // function deleteCookie(name: string) {
-  //   document.cookie = name + '=; Max-Age=0; path=/Dentista;'
-  // }
+  function deleteCookie(name: string) {
+    document.cookie = name + '=; Max-Age=0; path=/Dentista;'
+  }
 
   async function exit() {
     try {
-      // Apaga o cookie no lado do cliente
-      // deleteCookie('userName')
-      // window.location.href = '/Dentista'
+      deleteCookie('userName')
+      window.location.href = '/Dentista'
     } catch (error) {
       console.error('An error occurred:', error)
     }

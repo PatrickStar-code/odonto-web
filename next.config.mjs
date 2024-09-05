@@ -17,7 +17,22 @@ const nextConfig = {
 
       {
         protocol: 'https',
-        hostname: 'giphy.com',
+        hostname: 'i.ibb.co',
+      },
+
+      {
+        protocol: 'https',
+        hostname: 'pagedone.io',
+      },
+
+      {
+        protocol: 'https',
+        hostname: 'tailus.io',
+      },
+
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
       },
     ],
   },

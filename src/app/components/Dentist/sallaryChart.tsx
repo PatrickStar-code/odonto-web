@@ -10,7 +10,7 @@ const salaryData = {
       name: 'Salario do mês',
       data: [
         5000, 5200, 4800, 5500, 6000, 5900, 6200, 6100, 6000, 6300, 6200, 6500,
-      ], // Exemplo de dados de salário mensal
+      ],
     },
   ],
   options: {

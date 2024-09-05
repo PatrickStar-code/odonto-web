@@ -97,7 +97,7 @@ export default function CalendarDentist() {
   }
 
   return (
-    <div className="container mx-auto mt-10 px-4">
+    <div className="container mx-auto mt-10 px-4 overflow-auto">
       <div className="bg-white rounded shadow w-full overflow-x-auto">
         <div className="header flex justify-between items-center border-b p-2">
           {currentDate.getDate() !== CacheData.getDate() &&
@@ -176,7 +176,7 @@ export default function CalendarDentist() {
               {DaysofWeek.map((day, index) => (
                 <th
                   key={index}
-                  className="p-2 border-r text-gray-600 font-medium"
+                  className="  border-r w-[12rem] text-gray-600 font-medium"
                 >
                   <span className="hidden md:inline">{day.day}</span>
                   <span className="md:hidden">{day.AbreavitedDay}</span>
@@ -200,7 +200,9 @@ export default function CalendarDentist() {
                     CacheData.getFullYear() === currentDate.getFullYear()
 
                   const isClickedDay =
-                    clickedDate?.getTime() === dayDate.getTime()
+                    clickedDate?.getTime() === dayDate.getTime() &&
+                    day &&
+                    !isCurrentDay
 
                   const dayClass = day === '' ? 'bg-gray-200' : 'cursor-pointer'
 
@@ -213,7 +215,7 @@ export default function CalendarDentist() {
                   return (
                     <td
                       key={dayIndex}
-                      className={`border p-2 ${dayClass} ${combinedClass}`}
+                      className={`border p-4 ${dayClass} ${combinedClass}`}
                       onClick={() => handleDateClick(dayDate)}
                     >
                       {day}

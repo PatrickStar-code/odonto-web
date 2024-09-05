@@ -38,7 +38,7 @@ export default function Home() {
 
           <hr className="my-6 border-gray-300 w-full  hover:bg-white" />
 
-          <Link href={'/Cliente'}>
+          <Link href={'/Paciente'}>
             <Image
               src="/imgs/Client.png"
               id="client"
@@ -46,7 +46,7 @@ export default function Home() {
               height={60}
               alt="Logo"
             />
-            <h1 className="text-xl text-center">Cliente</h1>
+            <h1 className="text-xl text-center">Paciente</h1>
           </Link>
         </div>
       </div>

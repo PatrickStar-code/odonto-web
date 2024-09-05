@@ -3,8 +3,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import ActivelinkClient from './activeLinkClient'
 import { MenuIcon, X } from 'lucide-react'
-import Link from 'next/link'
-import { useClientContext } from '@/app/context'
+import { usePacientContext } from '@/app/Context'
 import {
   Avatar,
   AvatarImage,
@@ -13,17 +12,22 @@ import {
   DropdownContent,
   DropdownItem,
   DropdownList,
+  Modal,
+  ModalAction,
 } from 'keep-react'
+import { ModalRegister } from './modalRegister'
+import { ModalLogin } from './modalLogin'
+import ActiveLinkMobile from './activeLinkMobile'
 
 const Links = [
-  { PathName: 'Home', Path: '/Cliente' },
-  { PathName: 'Sobre', Path: '/' },
-  { PathName: 'Contato', Path: '/' },
+  { PathName: 'Home', Path: '/Paciente' },
+  { PathName: 'Sobre', Path: '/Paciente/Sobre' },
+  { PathName: 'Tratamentos', Path: '/Paciente/Tratamentos' },
 ]
 
 export default function NavBarClient() {
   const [isOpen, setIsOpen] = useState(false)
-  const { client } = useClientContext()
+  const { Pacient } = usePacientContext()
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -43,15 +47,25 @@ export default function NavBarClient() {
               </div>
             </div>
           </div>
-          {!client ? (
+          {!Pacient ? (
             <div className=" items-center gap-4 hidden md:flex">
-              <button className="bg-primary text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-blue-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                Logar
-              </button>
+              <Modal>
+                <ModalAction asChild>
+                  <button className="bg-primary text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-blue-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Logar
+                  </button>
+                </ModalAction>
+                <ModalLogin />
+              </Modal>
 
-              <button className="bg-highlight text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-[#0d6e8f] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
-                Registrar-se
-              </button>
+              <Modal>
+                <ModalAction asChild>
+                  <button className="bg-highlight text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-[#0d6e8f] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#0d6e8f] focus:ring-opacity-50">
+                    Registrar-se
+                  </button>
+                </ModalAction>
+                <ModalRegister />
+              </Modal>
             </div>
           ) : (
             <Dropdown placement="bottom-end">
@@ -92,23 +106,29 @@ export default function NavBarClient() {
         <div className="sm:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {Links.map((link) => (
-              <Link
-                key={link.PathName}
-                href={link.Path}
-                className="text-gray-700 hover:bg-blue-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
+              <ActiveLinkMobile key={link.PathName} href={link.Path}>
                 {link.PathName}
-              </Link>
+              </ActiveLinkMobile>
             ))}
-            {client && (
+            {!Pacient && (
               <div className="mt-6  gap-4 flex flex-col">
-                <button className="bg-primary text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-blue-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                  Logar
-                </button>
+                <Modal>
+                  <ModalAction asChild>
+                    <button className="bg-primary text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-blue-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                      Logar
+                    </button>
+                  </ModalAction>
+                  <ModalLogin />
+                </Modal>
 
-                <button className="bg-highlight text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-[#0d6e8f] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
-                  Registrar-se
-                </button>
+                <Modal>
+                  <ModalAction asChild>
+                    <button className="bg-highlight text-white font-semibold py-2 px-4 rounded transform transition-transform duration-200 ease-in-out hover:bg-[#0d6e8f] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                      Registrar-se
+                    </button>
+                  </ModalAction>
+                  <ModalRegister />
+                </Modal>
               </div>
             )}
           </div>

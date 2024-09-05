@@ -1,16 +1,19 @@
 'use client'
-import { useClientContext } from '@/app/context'
+import { usePacientContext } from '@/app/Context'
+import { Modal, ModalAction } from 'keep-react'
 import { Calendar } from 'lucide-react'
 
 import Image from 'next/image'
+import { ModalScheduling } from './modalscheduling'
+import { ModalRegister } from './modalRegister'
 
 export default function MainSection() {
-  const { client } = useClientContext()
+  const { Pacient } = usePacientContext()
   return (
     <section className="bg-white mb-20 md:mb-52 xl:mb-72">
       <div className="container max-w-screen-xl mx-auto px-4">
         <div className="flex flex-col items-center xl:flex-row xl:justify-start">
-          {client ? (
+          {Pacient ? (
             <>
               <div className="mt-28 text-center xl:text-left">
                 <h1 className="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">
@@ -24,9 +27,14 @@ export default function MainSection() {
                   especializado
                 </p>
                 <div className="flex justify-center xl:justify-start">
-                  <button className="bg-primary hover:bg-highlight px-6 py-4 text-white font-semibold text-lg rounded-xl transition ease-in-out duration-200 flex items-center">
-                    Agendar <Calendar className="ml-2" />
-                  </button>
+                  <Modal>
+                    <ModalAction asChild>
+                      <button className="bg-primary hover:bg-highlight px-6 py-4 text-white font-semibold text-lg rounded-xl transition ease-in-out duration-200 flex items-center">
+                        Agendar <Calendar className="ml-2" />
+                      </button>
+                    </ModalAction>
+                    <ModalScheduling />
+                  </Modal>
                 </div>
               </div>
 
@@ -53,9 +61,14 @@ export default function MainSection() {
                   transformar seu sorriso
                 </p>
                 <div className="flex justify-center xl:justify-start">
-                  <button className="bg-primary hover:bg-highlight px-6 py-4 text-white font-semibold text-lg rounded-xl transition ease-in-out duration-200 flex items-center">
-                    Registrar-se
-                  </button>
+                  <Modal>
+                    <ModalAction asChild>
+                      <button className="bg-primary hover:bg-highlight px-6 py-4 text-white font-semibold text-lg rounded-xl transition ease-in-out duration-200 flex items-center">
+                        Registrar-se
+                      </button>
+                    </ModalAction>
+                    <ModalRegister />
+                  </Modal>
                 </div>
               </div>
 

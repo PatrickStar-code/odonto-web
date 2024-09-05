@@ -63,7 +63,7 @@ export default function AppointmentsLineChart() {
   return (
     <div className="mx-auto bg-white rounded-lg shadow-2xl p-4 m-4 w-full max-w-4xl">
       <h1 className="text-center text-xl font-bold mb-4">
-        Monthly Appointments
+        Número de Consultas
       </h1>
       <div className="w-full h-full flex items-center justify-center">
         <Chart

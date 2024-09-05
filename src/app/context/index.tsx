@@ -1,6 +1,9 @@
-import { createContext, useContext, useState } from 'react'
+'use client'
 
-interface Client {
+import { createContext, useContext, useState } from 'react'
+import { LoginSchemaType } from '../components/Patient/modalLogin'
+
+interface Pacient {
   id: string
   name: string
   email: string
@@ -9,8 +12,12 @@ interface Client {
   cpf: string
 }
 
-type ClientContextType = {
-  client: Client | undefined
+type PacientContextType = {
+  Pacient: Pacient | undefined
+  Login: (data: LoginSchemaType) => Promise<boolean>
+  Register: () => void
+  ResetUser: () => void
+  loading: boolean
 }
 
 const DentistContext = createContext({})
@@ -25,18 +32,58 @@ export function DentistProvidar({ children }: { children: React.ReactNode }) {
   )
 }
 
-const ClientContext = createContext({} as ClientContextType)
+const PacientContext = createContext({} as PacientContextType)
 
-export function ClientProvider({ children }: { children: React.ReactNode }) {
-  const [client, setUser] = useState<Client | undefined>()
+export function PacientProvider({ children }: { children: React.ReactNode }) {
+  const [Pacient, setPacient] = useState<Pacient | undefined>()
+  const [loading, setLoading] = useState(false)
 
+  function Login(data: LoginSchemaType): Promise<boolean> {
+    setLoading(true)
+
+    return new Promise((resolve) => {
+      if (data.login === 'teste' && data.password === 'teste123') {
+        setTimeout(() => {
+          setPacient({
+            id: '1',
+            name: 'Patrick',
+            email: 'pX9iF@example.com',
+            phone: '11999999999',
+            birthdate: new Date(),
+            cpf: '11111111111',
+          })
+          resolve(true)
+        }, 1000)
+      } else {
+        resolve(false)
+      }
+    })
+  }
+  function Register() {
+    setTimeout(() => {
+      setPacient({
+        id: '1',
+        name: 'Patrick',
+        email: 'pX9iF@example.com',
+        phone: '11999999999',
+        birthdate: new Date(),
+        cpf: '11111111111',
+      })
+    }, 1000)
+  }
+
+  function ResetUser() {
+    setPacient(undefined)
+  }
   return (
-    <ClientContext.Provider value={{ client }}>
+    <PacientContext.Provider
+      value={{ Pacient, loading, Login, Register, ResetUser }}
+    >
       {children}
-    </ClientContext.Provider>
+    </PacientContext.Provider>
   )
 }
 
-export function useClientContext() {
-  return useContext(ClientContext)
+export function usePacientContext() {
+  return useContext(PacientContext)
 }

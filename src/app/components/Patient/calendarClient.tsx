@@ -95,7 +95,7 @@ export default function CalendarClient() {
           {days.map((day, index) => (
             <div
               key={index}
-              className={`py-2 ${day ? 'bg-gray-100 text-gray-900' : 'bg-gray-50 text-gray-300'} ${day === ActualDay && currentDate.getDate() === CacheDate.getDate() ? 'bg-primary text-white' : ''}`}
+              className={`py-2 px-2 ${day ? 'bg-gray-100 text-gray-900' : 'bg-gray-50 text-gray-300'} ${day === ActualDay && currentDate.getDate() === CacheDate.getDate() ? 'bg-primary text-white' : ''}`}
             >
               {day}
             </div>
@@ -103,7 +103,7 @@ export default function CalendarClient() {
         </div>
       </div>
 
-      <div className="p-4 bg-white rounded-lg shadow-lg"> </div>
+      <div className="p-4 bg-white rounded-lg shadow-lg"></div>
     </div>
   )
 }

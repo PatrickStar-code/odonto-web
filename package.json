@@ -19,6 +19,8 @@
     "apexcharts": "^3.52.0",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.13",
+    "framer-motion": "^11.4.0",
+    "keen-slider": "^6.8.6",
     "keep-react": "^1.5.0",
     "lucide-react": "^0.424.0",
     "next": "^14.2.7",
@@ -27,6 +29,8 @@
     "react": "^18",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
+    "react-scroll": "^1.9.0",
+    "swiper": "^11.1.12",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -34,6 +38,7 @@
     "@types/react": "^18",
     "@types/react-big-calendar": "^1.8.9",
     "@types/react-dom": "^18",
+    "@types/react-scroll": "^1.8.10",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

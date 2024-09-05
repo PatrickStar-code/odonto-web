@@ -17,7 +17,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-br">
+    <html
+      lang="pt-br"
+      className="scroll-smooth"
+      style={{ scrollBehavior: 'smooth' }}
+    >
       <head>
         <link rel="shortcut icon" href="/imgs/favicon.png" />
       </head>

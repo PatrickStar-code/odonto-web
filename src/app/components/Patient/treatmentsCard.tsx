@@ -10,7 +10,14 @@ export default function TreatmentsCard({
 }) {
   return (
     <article className="flex flex-col items-center justify-center w-48 p-4 hover:scale-125 ">
-      <Image src={icon} alt="" width={100} height={100} />
+      <Image
+        src={icon}
+        alt=""
+        width={100}
+        height={100}
+        quality={100}
+        className="w-24 h-24"
+      />
       <p className="text-center text-bold text-lg">{name}</p>
     </article>
   )
